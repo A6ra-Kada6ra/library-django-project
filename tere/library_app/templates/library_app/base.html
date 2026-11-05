@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Библиотека{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">Библиотечный фонд города</div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li>
+                    <a href="{% url 'about' %}">О компании</a>
+                    <ul>
+                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                        <li><a href="{% url 'how_to_find' %}">Как нас найти</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'catalog' %}">Каталог</a></li>
+                <li><a href="{% url 'readers' %}">Читателям</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Библиотечный фонд города</p>
+    </footer>
+</body>
+</html>
